@@ -8,12 +8,27 @@
     </parent>
     <artifactId>ecj</artifactId>
     <name>jacoco:: filtering samples ecj</name>
+    <properties>
+        <maven.compiler.compilerId>eclipse</maven.compiler.compilerId>
+        <maven.compiler.compilerVersion>1.6</maven.compiler.compilerVersion>
+    </properties>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+            </plugin>
         </plugins>
     </build>
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>sources</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>

@@ -107,5 +107,6 @@
         <module>jdk6</module>
         <module>jdk7</module>
         <module>ecj</module>
+        <!-- not working in the moment module>jikes</module-->
     </modules>
 </project>

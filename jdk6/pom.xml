@@ -13,6 +13,7 @@
         <maven.compiler.compilerVersion>1.6</maven.compiler.compilerVersion>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
+        <maven.compiler.executable>/Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home/bin/javac</maven.compiler.executable>
     </properties>
     <build>
         <plugins>

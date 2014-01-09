@@ -27,6 +27,11 @@
                             <artifactId>plexus-compiler-eclipse</artifactId>
                             <version>1.6</version>
                         </dependency>
+                        <dependency>
+                            <groupId>org.codehaus.plexus</groupId>
+                            <artifactId>plexus-compiler-jikes</artifactId>
+                            <version>1.6</version>
+                        </dependency>
                     </dependencies>
                 </plugin>
                 <plugin>

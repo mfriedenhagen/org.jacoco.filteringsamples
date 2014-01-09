@@ -98,6 +98,7 @@
     </dependencyManagement>
     <modules>
         <module>sources</module>
+        <module>jdk5</module>
         <module>jdk6</module>
         <module>jdk7</module>
         <module>ecj</module>

@@ -6,13 +6,13 @@
         <artifactId>root</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>jdk7</artifactId>
-    <name>jacoco:: filtering samples jdk7</name>
+    <artifactId>jdk5</artifactId>
+    <name>jacoco:: filtering samples jdk5</name>
     <properties>
         <maven.compiler.compilerId>javac</maven.compiler.compilerId>
-        <maven.compiler.compilerVersion>1.7</maven.compiler.compilerVersion>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.5</maven.compiler.compilerVersion>
+        <maven.compiler.source>1.5</maven.compiler.source>
+        <maven.compiler.target>1.5</maven.compiler.target>
     </properties>
     <build>
         <plugins>

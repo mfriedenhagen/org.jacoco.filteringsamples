@@ -13,9 +13,19 @@
         <maven.compiler.compilerVersion>1.5</maven.compiler.compilerVersion>
         <maven.compiler.source>1.5</maven.compiler.source>
         <maven.compiler.target>1.5</maven.compiler.target>
+        <maven.compiler.executable>${maven.compiler.executable.jdk5}</maven.compiler.executable>
     </properties>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>org/jacoco/filteringsamples/jdk7/*.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>

@@ -122,4 +122,11 @@
         <module>jdk8</module>
         <module>ecj</module>
     </modules>
+    <distributionManagement>
+        <repository>
+            <id>bintray-mfriedenhagen-maven-org.jacoco.filteringsamples</id>
+            <name>mfriedenhagen-maven-org.jacoco.filteringsamples</name>
+            <url>https://api.bintray.com/maven/mfriedenhagen/maven/org.jacoco.filteringsamples</url>
+        </repository>
+    </distributionManagement>
 </project>

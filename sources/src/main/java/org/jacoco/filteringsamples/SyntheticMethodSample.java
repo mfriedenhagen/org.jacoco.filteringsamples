@@ -1,4 +1,4 @@
-/* 
+/*
  * The MIT License
  *
  * Copyright 2014 Mirko Friedenhagen.
@@ -23,22 +23,16 @@
  */
 package org.jacoco.filteringsamples;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-
 /**
- * See <a href="https://github.com/jacoco/jacoco/wiki/filtering-JAVAC.FINALLY">JAVAC.FINALLY</a>.
+ * See <a href="https://github.com/jacoco/jacoco/wiki/filtering-JAVAC.SYNTHMETH">JAVAC.SYNTHMETH</a>.
  */
-public class FinallySample {
+public class SyntheticMethodSample {
 
-    void write(File file, byte[] contents) throws IOException {
-        final OutputStream out = new FileOutputStream(file);
-        try {
-            out.write(contents);
-        } finally {
-            out.close(); // this block is emitted twice
+    private int counter;
+
+    private class Inner {
+        private void inc() {
+            counter++;
         }
     }
 }

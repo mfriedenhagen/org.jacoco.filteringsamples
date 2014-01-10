@@ -29,6 +29,7 @@
                     <configuration>
                         <verbose>true</verbose>
                         <fork>true</fork>
+                        <forceJavacCompilerUse>true</forceJavacCompilerUse>
                     </configuration>
                     <dependencies>
                         <dependency>

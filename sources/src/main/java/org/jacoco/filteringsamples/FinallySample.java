@@ -29,9 +29,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- *
- * @author Mirko Friedenhagen
+ * See <a href="https://github.com/jacoco/jacoco/wiki/filtering-JAVAC.FINALLY">JAVAC.FINALLY</a>.
  */
+
 public class FinallySample {
 
     void write(File file, byte[] contents) throws IOException {

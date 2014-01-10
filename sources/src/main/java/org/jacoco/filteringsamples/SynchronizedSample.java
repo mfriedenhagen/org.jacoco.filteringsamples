@@ -25,7 +25,7 @@
 package org.jacoco.filteringsamples;
 
 /**
- * See <a href="https://github.com/jacoco/jacoco/wiki/filtering-JAVAC.SYNC">JAVAC.SYNC</a>
+ * See <a href="https://github.com/jacoco/jacoco/wiki/filtering-JAVAC.SYNC">JAVAC.SYNC</a>.
  */
 public class SynchronizedSample {
 

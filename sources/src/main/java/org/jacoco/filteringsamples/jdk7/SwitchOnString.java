@@ -24,8 +24,7 @@
 package org.jacoco.filteringsamples.jdk7;
 
 /**
- *
- * @author Mirko Friedenhagen
+ * See <a href="https://github.com/jacoco/jacoco/wiki/FilteringOptions">Filtering options</a>.
  */
 public class SwitchOnString {
 

@@ -24,8 +24,7 @@
 package org.jacoco.filteringsamples;
 
 /**
- *
- * @author Mirko Friedenhagen
+ * See <a href="https://github.com/jacoco/jacoco/wiki/filtering-JAVAC.ENUM">JAVAC.ENUM</a>.
  */
 public enum EnumSample {
     A,

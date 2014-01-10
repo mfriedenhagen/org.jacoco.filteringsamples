@@ -11,6 +11,12 @@
     <properties>
         <maven.compiler.compilerId>eclipse</maven.compiler.compilerId>
         <maven.compiler.compilerVersion>1.7</maven.compiler.compilerVersion>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <!-- SwitchOnString is not compilable with ecj for now and excludes are not working :-(
+        Maybe related: https://bugs.eclipse.org/bugs/show_bug.cgi?id=413368
+        -->
+        <maven.compiler.failOnError>false</maven.compiler.failOnError>
     </properties>
     <build>
         <plugins>

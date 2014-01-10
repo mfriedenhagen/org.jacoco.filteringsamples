@@ -13,11 +13,13 @@
         <maven.compiler.compilerVersion>1.7</maven.compiler.compilerVersion>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
+        <!-- these values need to be overridden on other systems. Instead of modifying the POM,
+             you may do so in your ~/.m2/settings.xml.
+        -->
         <maven.compiler.executable.jdk5>/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Commands/javac</maven.compiler.executable.jdk5>
         <maven.compiler.executable.jdk6>/Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home/bin/javac</maven.compiler.executable.jdk6>
         <maven.compiler.executable.jdk7>/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/bin/javac</maven.compiler.executable.jdk7>
         <maven.compiler.executable.jdk8>/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/bin/javac</maven.compiler.executable.jdk8>
-        <maven.compiler.executable.jikes>/User/mirko/bin/jikes</maven.compiler.executable.jikes>
     </properties>
     <build>
         <pluginManagement>

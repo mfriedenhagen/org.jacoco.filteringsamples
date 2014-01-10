@@ -1,11 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>org.jacoco.filteringsamples</groupId>
     <artifactId>root</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <name>jacoco:: filtering samples root</name>
+    <url>https://github.com/mfriedenhagen/org.jacoco.filteringsamples</url>
+
+    <modules>
+        <module>sources</module>
+        <module>jdk5</module>
+        <module>jdk6</module>
+        <module>jdk7</module>
+        <module>jdk8</module>
+        <module>ecj</module>
+    </modules>
+
+    <scm>
+        <connection>scm:git:git@github.com:mfriedenhagen/org.jacoco.filteringsamples.git</connection>
+        <developerConnection>scm:git:git@github.com:mfriedenhagen/org.jacoco.filteringsamples.git</developerConnection>
+        <url>https://github.com/mfriedenhagen/org.jacoco.filteringsamples</url>
+    </scm>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/mfriedenhagen/org.jacoco.filteringsamples/issues</url>
+    </issueManagement>
+    <distributionManagement>
+        <repository>
+            <id>bintray-mfriedenhagen-maven-org.jacoco.filteringsamples</id>
+            <name>mfriedenhagen-maven-org.jacoco.filteringsamples</name>
+            <url>https://api.bintray.com/maven/mfriedenhagen/maven/org.jacoco.filteringsamples</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -22,16 +53,18 @@
         <maven.compiler.executable.jdk8>/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/bin/javac</maven.compiler.executable.jdk8>
         <netbeans.hint.license>mit</netbeans.hint.license>
     </properties>
-    <url>https://github.com/mfriedenhagen/org.jacoco.filteringsamples</url>
-    <issueManagement>
-        <system>GitHub</system>
-        <url>https://github.com/mfriedenhagen/org.jacoco.filteringsamples/issues</url>
-    </issueManagement>
-    <scm>
-        <connection>scm:git:git@github.com:mfriedenhagen/org.jacoco.filteringsamples.git</connection>
-        <developerConnection>scm:git:git@github.com:mfriedenhagen/org.jacoco.filteringsamples.git</developerConnection>
-        <url>https://github.com/mfriedenhagen/org.jacoco.filteringsamples</url>
-    </scm>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>sources</artifactId>
+                <version>${project.version}</version>
+                <classifier>sources</classifier>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -119,29 +152,5 @@
             </plugins>
         </pluginManagement>
     </build>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>sources</artifactId>
-                <version>${project.version}</version>
-                <classifier>sources</classifier>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    <modules>
-        <module>sources</module>
-        <module>jdk5</module>
-        <module>jdk6</module>
-        <module>jdk7</module>
-        <module>jdk8</module>
-        <module>ecj</module>
-    </modules>
-    <distributionManagement>
-        <repository>
-            <id>bintray-mfriedenhagen-maven-org.jacoco.filteringsamples</id>
-            <name>mfriedenhagen-maven-org.jacoco.filteringsamples</name>
-            <url>https://api.bintray.com/maven/mfriedenhagen/maven/org.jacoco.filteringsamples</url>
-        </repository>
-    </distributionManagement>
+
 </project>

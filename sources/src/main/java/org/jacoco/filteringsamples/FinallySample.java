@@ -23,11 +23,23 @@
  */
 package org.jacoco.filteringsamples;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
 /**
  *
  * @author Mirko Friedenhagen
  */
-public enum EnumSample {
-    A,
-    B;
+public class FinallySample {
+
+    void write(File file, byte[] contents) throws IOException {
+        final OutputStream out = new FileOutputStream(file);
+        try {
+            out.write(contents);
+        } finally {
+            out.close(); // this block is emitted twice
+        }
+    }
 }

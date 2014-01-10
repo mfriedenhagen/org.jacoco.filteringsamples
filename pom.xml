@@ -22,6 +22,16 @@
         <maven.compiler.executable.jdk8>/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/bin/javac</maven.compiler.executable.jdk8>
         <netbeans.hint.license>mit</netbeans.hint.license>
     </properties>
+    <url>https://github.com/mfriedenhagen/org.jacoco.filteringsamples</url>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/mfriedenhagen/org.jacoco.filteringsamples/issues</url>
+    </issueManagement>
+    <scm>
+        <connection>scm:git:git@github.com:mfriedenhagen/org.jacoco.filteringsamples.git</connection>
+        <developerConnection>scm:git:git@github.com:mfriedenhagen/org.jacoco.filteringsamples.git</developerConnection>
+        <url>https://github.com/mfriedenhagen/org.jacoco.filteringsamples</url>
+    </scm>
     <build>
         <pluginManagement>
             <plugins>
@@ -82,6 +92,11 @@
                             </goals>
                         </execution>
                     </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.4.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>

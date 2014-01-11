@@ -8,7 +8,26 @@
     <packaging>pom</packaging>
 
     <name>jacoco:: filtering samples root</name>
+    <description>
+        This project produces class files with different Java compilers as needed as input for testing
+        false positives in Jacoco (https://github.com/jacoco/jacoco/wiki/FilteringOptions).
+    </description>
     <url>https://github.com/mfriedenhagen/org.jacoco.filteringsamples</url>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>mfriedenhagen</id>
+            <name>Mirko Friedenhagen</name>
+            <url>http://mfriedenhagen.github.io/</url>
+        </developer>
+    </developers>
 
     <modules>
         <module>sources</module>
@@ -23,8 +42,8 @@
         <connection>scm:git:git@github.com:mfriedenhagen/org.jacoco.filteringsamples.git</connection>
         <developerConnection>scm:git:git@github.com:mfriedenhagen/org.jacoco.filteringsamples.git</developerConnection>
         <url>https://github.com/mfriedenhagen/org.jacoco.filteringsamples</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
     <issueManagement>
         <system>GitHub</system>
         <url>https://github.com/mfriedenhagen/org.jacoco.filteringsamples/issues</url>

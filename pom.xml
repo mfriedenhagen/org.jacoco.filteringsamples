@@ -66,10 +66,7 @@
         <!-- these values need to be overridden on other systems. Instead of modifying the POM,
              you may do so in your ~/.m2/settings.xml.
         -->
-        <maven.compiler.executable.jdk5>/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Commands/javac</maven.compiler.executable.jdk5>
-        <maven.compiler.executable.jdk6>/Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home/bin/javac</maven.compiler.executable.jdk6>
-        <maven.compiler.executable.jdk7>/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/bin/javac</maven.compiler.executable.jdk7>
-        <maven.compiler.executable.jdk8>/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/bin/javac</maven.compiler.executable.jdk8>
+        <jdkVersion>[1.8]</jdkVersion>
         <netbeans.hint.license>mit</netbeans.hint.license>
     </properties>
 
@@ -100,11 +97,6 @@
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
                             <artifactId>plexus-compiler-eclipse</artifactId>
-                            <version>2.3</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.codehaus.plexus</groupId>
-                            <artifactId>plexus-compiler-jikes</artifactId>
                             <version>2.3</version>
                         </dependency>
                     </dependencies>
@@ -161,6 +153,17 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.4.2</version>
+                    <configuration>
+                        <mavenExecutorId>forked-path</mavenExecutorId>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
+                        <localCheckout>true</localCheckout>
+                        <pushChanges>false</pushChanges>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
                     <version>2.2.1</version>
                     <executions>
@@ -174,14 +177,35 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>2.4.2</version>
-                    <configuration>
-                        <mavenExecutorId>forked-path</mavenExecutorId>
-                        <autoVersionSubmodules>true</autoVersionSubmodules>
-                        <localCheckout>true</localCheckout>
-                        <pushChanges>false</pushChanges>
-                    </configuration>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.16</version>
+                    <executions>
+                        <execution>
+                            <id>default-test</id>
+                            <!-- do not execute surefire at all by binding to none -->
+                            <phase>none</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-toolchains-plugin</artifactId>
+                    <version>1.0</version>
+                    <executions>
+                        <execution>
+                            <id>default-toolchain</id>
+                            <goals>
+                                <goal>toolchain</goal>
+                            </goals>
+                            <configuration>
+                                <toolchains>
+                                    <jdk>
+                                        <version>${jdkVersion}</version>
+                                    </jdk>
+                                </toolchains>
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>

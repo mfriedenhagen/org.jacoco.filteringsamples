@@ -80,10 +80,68 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>1.7</version>
+                    <executions>
+                        <execution>
+                            <id>default-run</id>
+                            <phase>prepare-package</phase>
+                            <goals>
+                                <goal>run</goal>
+                            </goals>
+                            <configuration>
+                                <target>
+                                    <script language="groovy">
+                                        buildDirectory = project.getProperty("project.build.outputDirectory");
+                                        asmDir = new File(buildDirectory, "../asm/asm");
+                                        asmDir.mkdirs();
+                                        fs = project.createDataType("fileset");
+                                        fs.setDir(new File(buildDirectory));
+                                        fs.setIncludes("**/*.class");
+                                        ds = fs.getDirectoryScanner(project);
+                                        srcFiles = ds.getIncludedFiles();
+                                        oldOut = System.out;
+                                        srcFiles.each() {
+                                            packageDir = new File(asmDir, new File(it).getParent())
+                                            packageDir.mkdirs();
+                                            classFilePath = new File(buildDirectory, it).getPath();
+                                            asmFilePath = new File(packageDir, new File(it).getName().replace(".class", ".java"));
+                                            println asmFilePath;
+                                            asmFilePrintStream = new PrintStream(new FileOutputStream(asmFilePath));
+                                            try {
+                                                System.setOut(asmFilePrintStream);
+                                                org.objectweb.asm.util.ASMifier.main(classFilePath);
+                                            } finally {
+                                                asmFilePrintStream.close();
+                                                System.setOut(oldOut);
+                                            }
+                                        };
+                                    </script>
+                                    <zip 
+                                        destfile="${project.build.directory}/${project.artifactId}-${project.version}-asmified.zip"
+                                        basedir="${project.build.directory}/asm"/>
+                                </target>
+                            </configuration>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.codehaus.groovy</groupId>
+                            <artifactId>groovy-all</artifactId>
+                            <version>2.2.1</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.ow2.asm</groupId>
+                            <artifactId>asm-all</artifactId>
+                            <version>5.0_BETA</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -123,6 +181,7 @@
                                 <classifier>sources</classifier>
                                 <excludes>META-INF/MANIFEST.MF</excludes>
                                 <outputDirectory>${project.build.directory}/generated-sources/dependency</outputDirectory>
+                                <includeGroupIds>org.jacoco</includeGroupIds>
                             </configuration>
                         </execution>
                     </executions>
@@ -221,6 +280,22 @@
                                 <sources>
                                     <source>${project.build.directory}/generated-sources/dependency</source>
                                 </sources>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>default-attach-artifact</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>attach-artifact</goal>
+                            </goals>
+                            <configuration>
+                                <artifacts>
+                                    <artifact>
+                                        <file>${project.build.directory}/${project.artifactId}-${project.version}-asmified.zip</file>
+                                        <type>zip</type>
+                                        <classifier>asmified</classifier>
+                                    </artifact>
+                                </artifacts>
                             </configuration>
                         </execution>
                     </executions>

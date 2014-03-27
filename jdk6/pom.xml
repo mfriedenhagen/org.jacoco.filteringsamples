@@ -40,6 +40,7 @@
                 <configuration>
                     <excludes>
                         <exclude>org/jacoco/filteringsamples/jdk7/*.java</exclude>
+                        <exclude>org/jacoco/filteringsamples/jdk8/*.java</exclude>
                     </excludes>
                 </configuration>
             </plugin>

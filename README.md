@@ -4,7 +4,11 @@ org.jacoco.filteringsamples
 This project produces class files with different Java compilers as needed as input for testing
 false positives in Jacoco (https://github.com/jacoco/jacoco/wiki/FilteringOptions).
 
-To make this project to work you have to set `toolchains` in your `~/.m2/toolchains.xml` to define the JDK, on MacOSX this should work:
+To make this project to work you have to:
+* install Sun/Oracle JDKs 1.5-1.8 on your machine and
+* set `toolchains` in your `~/.m2/toolchains.xml` to define the JDKs.
+
+On MacOSX this should work:
 
 ```
 <toolchains>
@@ -32,7 +36,7 @@ To make this project to work you have to set `toolchains` in your `~/.m2/toolcha
            <version>1.7</version>
        </provides>
        <configuration>
-          <jdkHome>/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/</jdkHome>
+          <jdkHome>/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/</jdkHome>
        </configuration>
     </toolchain>
     <toolchain>
